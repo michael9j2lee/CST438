@@ -1,7 +1,7 @@
 package cst438;
 
 
-import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,8 +17,8 @@ import javax.validation.constraints.Size;
 		private long id;
 		
 		@NotNull
-		@Size(min=3,max=25)
-		private Date date;
+		@Size(min=19,max=19)
+		private String date;
 		
 		@NotNull
 		@Size(min=3,max=25)
@@ -31,16 +31,17 @@ import javax.validation.constraints.Size;
 
 		
 		public Movie() {
-			
+			java.util.Date dt = new java.util.Date();
+			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			this.date = sdf.format(dt);
 		}
 
 
 
-		public Movie(long id, Date date, @NotNull @Size(min = 3, max = 25) String title,
+		public Movie(long id, @NotNull @Size(min = 3, max = 25) String title,
 				@NotNull @Size(min = 3, max = 25) float rating) {
 			super();
 			this.id = id;
-			this.date = date;
 			this.title = title;
 			this.rating = rating;
 		}
@@ -59,13 +60,13 @@ import javax.validation.constraints.Size;
 
 
 
-		public Date getDate() {
+		public String getDate() {
 			return date;
 		}
 
 
 
-		public void setDate(Date date) {
+		public void setDate(String date) {
 			this.date = date;
 		}
 
@@ -77,7 +78,7 @@ import javax.validation.constraints.Size;
 
 
 
-		public void setTitle(String movie) {
+		public void setTitle(String title) {
 			this.title = title;
 		}
 

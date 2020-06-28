@@ -13,8 +13,8 @@
 			<th>Title</th>
 			<th>Rating</th>
 		</tr>
-		<tr th:each="Movie: ${movie}">
-			<td th:text="${time}"></td>
+		<tr th:each="movie: ${movie}">
+			<td th:text="${movie.date}"></td>>
 			<td th:text="${movie.title}"></td>
 			<td th:text="${movie.rating}"></td>
 		</tr>

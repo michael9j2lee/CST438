@@ -7,9 +7,8 @@
 <body>
 	<h2>Hello.</h2>
 	<form action="#" th:action="@{/movies}" th:object="${movie}" method = "post">
-	Current Time: <input type ="text" th:field="*{movie}" /> <br />
-		<span th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></span><br />
-	Movie Title: <input type ="text" th:field="*{movie}" />
+		
+	Movie Title: <input type ="text" th:field="*{title}" />
 		<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br />
 		
 	Movie Rating: <input type ="text" th:field="*{rating}" />
