@@ -5,6 +5,7 @@ package cst438;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -25,7 +26,7 @@ import javax.validation.constraints.Size;
 		private String title;
 		
 		@NotNull
-		@Size(min=3,max=25)
+		@Max(100)
 		private float rating;
 		
 

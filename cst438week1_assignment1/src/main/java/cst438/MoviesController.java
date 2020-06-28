@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MoviesController {
@@ -16,13 +15,6 @@ public class MoviesController {
 	@Autowired
 	MovieRepository movieRepository;
 	
-	
-	@GetMapping("/getMovies") // localhost:8080/hello?name=insertname
-	public String movies(@RequestParam("title") String title, Model model) {
-		model.addAttribute("title",title);
-		model.addAttribute("date", new java.util.Date().toString());
-		return "index";
-	}
 	
 	@GetMapping("/movies/new")
 	public String createPerson(Model model ) {
@@ -41,7 +33,9 @@ public class MoviesController {
 
 
 		movieRepository.save(movie);
-		return "movie_show";
+		Iterable<Movie> movies = movieRepository.findAllMovies();
+		model.addAttribute("movie",movies);
+		return "movie_list";
 	}
 	
 	@GetMapping("/movies")
