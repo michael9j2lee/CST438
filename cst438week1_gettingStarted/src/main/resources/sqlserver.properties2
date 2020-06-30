@@ -1,8 +1,0 @@
-spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
- 
-spring.datasource.url=jdbc:sqlserver://localhost;databaseName=person
-spring.datasource.username=michaeljlee92
-spring.datasource.password=password1234
-spring.jpa.show-sql=true
-spring.jpa.hibernate.dialect=org.hibernate.dialect.SQLServer2014Dialect
-spring.jpa.hibernate.ddl-auto = create-drop
