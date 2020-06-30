@@ -30,18 +30,19 @@ public class MoviesController {
 		if(result.hasErrors()) {
 			return "movie_form";
 		}
-
-
 		movieRepository.save(movie);
-		Iterable<Movie> movies = movieRepository.findAllMovies();
-		model.addAttribute("movie",movies);
+		iterateMovie(model);
 		return "movie_list";
 	}
 	
 	@GetMapping("/movies")
 	public String getAllMovies(Model model) {
+		iterateMovie(model);
+		return "movie_list";
+	}
+	
+	public void iterateMovie(Model model) {
 		Iterable<Movie> movie = movieRepository.findAllMovies();
 		model.addAttribute("movie",movie);
-		return "movie_list";
 	}
 }
