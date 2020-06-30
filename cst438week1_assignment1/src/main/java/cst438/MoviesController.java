@@ -10,11 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MoviesController {
-
-
 	@Autowired
 	MovieRepository movieRepository;
-	
 	
 	@GetMapping("/movies/new")
 	public String createPerson(Model model ) {
@@ -41,6 +38,7 @@ public class MoviesController {
 		return "movie_list";
 	}
 	
+	//Pass Model as a reference and modify it based upon the MySQL query.
 	public void iterateMovie(Model model) {
 		Iterable<Movie> movie = movieRepository.findAllMovies();
 		model.addAttribute("movie",movie);
