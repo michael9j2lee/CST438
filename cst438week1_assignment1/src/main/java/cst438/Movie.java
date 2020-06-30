@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,14 +25,16 @@ import javax.validation.constraints.Size;
 		
 		@NotNull
 		@Max(100)
+		@Min(0)
 		private float rating;
 		
+		//Default constructor includes the new date in string format.
 		public Movie() {
 			java.util.Date dt = new java.util.Date();
 			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			this.date = sdf.format(dt);
 		}
-
+		
 		public Movie(long id, @NotNull @Size(min = 3, max = 25) String title,
 				@NotNull @Size(min = 3, max = 25) float rating) {
 			super();
