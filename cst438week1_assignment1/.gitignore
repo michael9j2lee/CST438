@@ -28,7 +28,7 @@ target/
 build/
 
 ### Properties ###
-.properties
+*.properties
 
 ### VS Code ###
 .vscode/
