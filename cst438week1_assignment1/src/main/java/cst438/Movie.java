@@ -24,8 +24,8 @@ import javax.validation.constraints.Size;
 		private String title;
 		
 		@NotNull
-		@Max(100)
-		@Min(0)
+		@Max(5)
+		@Min(1)
 		private float rating;
 		
 		//Default constructor includes the new date in string format.
@@ -36,8 +36,7 @@ import javax.validation.constraints.Size;
 		}
 		
 		public Movie(long id, @NotNull @Size(min = 3, max = 25) String title,
-				@NotNull @Size(min = 3, max = 25) float rating) {
-			super();
+				@NotNull  float rating) {
 			this.id = id;
 			this.title = title;
 			this.rating = rating;
